@@ -30,7 +30,7 @@
 		AB9276A8142776A900303D2F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = AB9276A6142776A900303D2F /* Credits.rtf */; };
 		AB9276AB142776A900303D2F /* OSBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9276AA142776A900303D2F /* OSBAppDelegate.m */; };
 		AB9276AE142776AA00303D2F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB9276AC142776AA00303D2F /* MainMenu.xib */; };
-		AB9276B1142776AA00303D2F /* OSXBoilerplate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB9276AF142776AA00303D2F /* OSXBoilerplate.xcdatamodeld */; };
+		AB9276B1142776AA00303D2F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB9276AF142776AA00303D2F /* Model.xcdatamodeld */; };
 		AB9276CF142778A900303D2F /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9276C0142778A900303D2F /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AB9276D0142778A900303D2F /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9276C2142778A900303D2F /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AB9276D1142778A900303D2F /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AB9276C4142778A900303D2F /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -90,7 +90,7 @@
 		AB9276A9142776A900303D2F /* OSBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSBAppDelegate.h; sourceTree = "<group>"; };
 		AB9276AA142776A900303D2F /* OSBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSBAppDelegate.m; sourceTree = "<group>"; };
 		AB9276AD142776AA00303D2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		AB9276B0142776AA00303D2F /* OSXBoilerplate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OSXBoilerplate.xcdatamodel; sourceTree = "<group>"; };
+		AB9276B0142776AA00303D2F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		AB9276BE142778A900303D2F /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
 		AB9276BF142778A900303D2F /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataCompressor.h; sourceTree = "<group>"; };
 		AB9276C0142778A900303D2F /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressor.m; sourceTree = "<group>"; };
@@ -309,7 +309,7 @@
 				AB9276A9142776A900303D2F /* OSBAppDelegate.h */,
 				AB9276AA142776A900303D2F /* OSBAppDelegate.m */,
 				AB9276AC142776AA00303D2F /* MainMenu.xib */,
-				AB9276AF142776AA00303D2F /* OSXBoilerplate.xcdatamodeld */,
+				AB9276AF142776AA00303D2F /* Model.xcdatamodeld */,
 				AB92769E142776A900303D2F /* Supporting Files */,
 			);
 			path = OSXBoilerplate;
@@ -467,7 +467,7 @@
 			files = (
 				AB9276A4142776A900303D2F /* main.m in Sources */,
 				AB9276AB142776A900303D2F /* OSBAppDelegate.m in Sources */,
-				AB9276B1142776AA00303D2F /* OSXBoilerplate.xcdatamodeld in Sources */,
+				AB9276B1142776AA00303D2F /* Model.xcdatamodeld in Sources */,
 				AB9276CF142778A900303D2F /* ASIDataCompressor.m in Sources */,
 				AB9276D0142778A900303D2F /* ASIDataDecompressor.m in Sources */,
 				AB9276D1142778A900303D2F /* ASIDownloadCache.m in Sources */,
@@ -617,13 +617,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		AB9276AF142776AA00303D2F /* OSXBoilerplate.xcdatamodeld */ = {
+		AB9276AF142776AA00303D2F /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				AB9276B0142776AA00303D2F /* OSXBoilerplate.xcdatamodel */,
+				AB1EE7B6142B558200C34DFC /* Model 2.xcdatamodel */,
+				AB9276B0142776AA00303D2F /* Model.xcdatamodel */,
 			);
-			currentVersion = AB9276B0142776AA00303D2F /* OSXBoilerplate.xcdatamodel */;
-			path = OSXBoilerplate.xcdatamodeld;
+			currentVersion = AB9276B0142776AA00303D2F /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

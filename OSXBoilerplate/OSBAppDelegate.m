@@ -1,10 +1,6 @@
 #import "OSBAppDelegate.h"
 #import "OSBApplicationCoreDataStack.h"
 
-#import "NSFileManager-OSXBoilerplateAdditions.h"
-#import "NSBundle-OSXBoilerplateAdditions.h"
-
-
 @interface OSBAppDelegate ()
 
 #pragma mark Properties

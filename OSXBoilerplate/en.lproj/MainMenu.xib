@@ -1318,7 +1318,6 @@
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
-				<string key="NSWindowContentMinSize">{643, 554}</string>
 				<object class="NSView" key="NSWindowView" id="439893737">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
@@ -1546,7 +1545,6 @@
 							<string key="NSFrame">{{35, 4}, {25, 25}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:287</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="837664937">
@@ -1575,7 +1573,6 @@
 					<reference key="NSNextKeyView" ref="541461395"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
-				<string key="NSMinSize">{643, 576}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSAutorecalculatesContentBorderThicknessMinY">NO</bool>
 				<double key="NSContentBorderThicknessMinY">32</double>
@@ -1768,7 +1765,7 @@
 							</object>
 						</object>
 					</dictionary>
-					<array class="NSMutableArray" key="NSToolbarIBAllowedItems">
+					<array key="NSToolbarIBAllowedItems">
 						<reference ref="509177859"/>
 						<reference ref="838090731"/>
 						<reference ref="226570022"/>
@@ -1776,7 +1773,7 @@
 						<reference ref="353428357"/>
 						<reference ref="58896585"/>
 					</array>
-					<array class="NSMutableArray" key="NSToolbarIBDefaultItems">
+					<array key="NSToolbarIBDefaultItems">
 						<reference ref="353428357"/>
 						<reference ref="58896585"/>
 						<reference ref="838090731"/>
@@ -1789,8 +1786,6 @@
 					<int key="NSvFlags">256</int>
 					<string key="NSFrameSize">{480, 270}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView"/>
 					<string key="NSReuseIdentifierKey">_NS:224</string>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
@@ -2562,7 +2557,7 @@
 							<array class="NSMutableArray" key="NSSubviews">
 								<object class="NSTextField" id="361774094">
 									<reference key="NSNextResponder" ref="980372797"/>
-									<int key="NSvFlags">270</int>
+									<int key="NSvFlags">266</int>
 									<string key="NSFrame">{{44, 14}, {132, 17}}</string>
 									<reference key="NSSuperview" ref="980372797"/>
 									<reference key="NSNextKeyView" ref="742089004"/>
