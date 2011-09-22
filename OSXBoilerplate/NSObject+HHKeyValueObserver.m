@@ -1,7 +1,7 @@
 //
 //  NSObject+HHKeyValueObserver.m
 //
-// Copyright (c) 2010 Houdah Software s.à r.l. (http://www.houdah.com)
+// Copyright © 2010-2011 Houdah Software s.à r.l. (http://www.houdah.com)
 //
 // Permission is hereby granted, free of charge, to any person
 // obtaining a copy of this software and associated documentation
@@ -24,6 +24,7 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 // OTHER DEALINGS IN THE SOFTWARE.
 //
+
 
 #import "NSObject+HHKeyValueObserver.h"
 
