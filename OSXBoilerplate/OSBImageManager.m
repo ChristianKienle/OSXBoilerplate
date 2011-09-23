@@ -2,15 +2,27 @@
 #import "OSBImageManagerDelegate.h"
 #import "OSBDownloadImageOperation.h"
 
+@interface OSBImageManager ()
+
+#pragma mark Properties
+@property (nonatomic, strong, readwrite) NSMutableArray *pendingImages;
+@property (nonatomic, strong, readwrite) NSMutableDictionary *loadedImages;
+@property (nonatomic, strong, readwrite) NSOperationQueue *downloadQueue;
+
+@end
+
 @implementation OSBImageManager
+
+#pragma mark Properties
+@synthesize pendingImages, loadedImages, downloadQueue;
 
 - (id)init {
    self = [super init];
    if(self) {
-      pendingImages = [[NSMutableArray alloc] init];
-      loadedImages = [[NSMutableDictionary alloc] init];
-      downloadQueue = [[NSOperationQueue alloc] init];
-      [downloadQueue setMaxConcurrentOperationCount:3];
+      self.pendingImages = [NSMutableArray array];
+      self.loadedImages = [NSMutableDictionary dictionary];
+      self.downloadQueue = [[NSOperationQueue alloc] init];
+      [self.downloadQueue setMaxConcurrentOperationCount:3];
       self.delegate = nil;
    }
     
@@ -93,7 +105,7 @@ static OSBImageManager *sharedSingleton;
 
 #pragma mark OSBDownloadImageOperationDelegate
 - (void)downloadImageOperation:(OSBDownloadImageOperation *)operation didDownloadImage:(NSImage *)image fromURL:(NSURL *)URL {
-	if (!image) {
+	if(!image) {
 		return;
 	}
    
