@@ -12,15 +12,14 @@
 //  - suggestion: do not implement this class as a singleton
 
 #import <Foundation/Foundation.h>
-#import "ASIDownloadCache.h"
+#import "OSBDownloadImageOperationDelegate.h"
 
 @protocol OSBImageManagerDelegate;
-@interface OSBImageManager : NSObject {
+@interface OSBImageManager : NSObject <OSBDownloadImageOperationDelegate> {
    @private
    NSMutableArray* pendingImages;
 	NSMutableDictionary* loadedImages;
 	NSOperationQueue *downloadQueue;
-	ASIDownloadCache *cache;
 }
 
 #pragma mark Loading images
@@ -35,7 +34,6 @@
 - (NSString *)cacheDirectory;
 
 #pragma mark Singleton-specific
-+ (void) releaseSingleton;
 + (OSBImageManager *)sharedImageManager;
 
 #pragma mark Properties

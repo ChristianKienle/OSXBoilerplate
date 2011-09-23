@@ -1,15 +1,14 @@
 #import "OSBImageManager.h"
-#import "ASIHTTPRequest.h"
 #import "OSBImageManagerDelegate.h"
+#import "OSBDownloadImageOperation.h"
 
 @implementation OSBImageManager
 
-- (id)init
-{
+- (id)init {
    self = [super init];
-   if (self) {
-      pendingImages = [[NSMutableArray alloc] initWithCapacity:10];
-      loadedImages = [[NSMutableDictionary alloc] initWithCapacity:50];
+   if(self) {
+      pendingImages = [[NSMutableArray alloc] init];
+      loadedImages = [[NSMutableDictionary alloc] init];
       downloadQueue = [[NSOperationQueue alloc] init];
       [downloadQueue setMaxConcurrentOperationCount:3];
       self.delegate = nil;
@@ -28,94 +27,61 @@ static OSBImageManager *sharedSingleton;
     }
 }
 
-- (NSString*) cacheDirectory {
+- (NSString *)cacheDirectory {
    return [[[[NSFileManager alloc] init] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
-+ (NSImage*)loadImage:(NSURL *)url {
-    return [sharedSingleton loadImage:url];
++ (NSImage *)loadImage:(NSURL *)url {
+   return [sharedSingleton loadImage:url];
 }
 
-- (NSImage*)loadImage:(NSURL *)url {
-	// NSLog(@"url = %@", url);
-	NSImage* img = [loadedImages objectForKey:url];
-    if (img) {
-        return img;
-    }
+- (NSImage *)loadImage:(NSURL *)url {
+   NSImage * image = [loadedImages objectForKey:url];
+   if(image) {
+      return image;
+   }
     
-    if ([pendingImages containsObject:url]) {
-        // already being downloaded
-        return nil;
-    }
+   if([pendingImages containsObject:url]) {
+      return nil;
+   }
     
-    [pendingImages addObject:url];
-    
-    ASIHTTPRequest *request = [[ASIHTTPRequest alloc] initWithURL:url];
-    /*
-     Here you can configure a cache system
-     
-     if (!cache) {
-     ASIDownloadCache* _cache = [[ASIDownloadCache alloc] init];
-     self.cache = _cache;
-     [_cache release];
-     [cache setStoragePath:[self cacheDirectory]];
-     }
-     // [request setDownloadCache:cache];
-     // [request setCachePolicy:ASIOnlyLoadIfNotCachedCachePolicy];
-     // [request setCacheStoragePolicy:ASICachePermanentlyCacheStoragePolicy];
-     
-     */
-    
-    [request setDelegate:self];
-    [request setDidFinishSelector:@selector(imageDone:)];
-    [request setDidFailSelector:@selector(imageWentWrong:)];
-    [downloadQueue addOperation:request];
+   [pendingImages addObject:url];
+   
+   OSBDownloadImageOperation *operation = [[OSBDownloadImageOperation alloc] initWithURL:url delegate:self];
+   [downloadQueue addOperation:operation];
     return nil;
 }
 
-- (void)imageDone:(ASIHTTPRequest*)request {
-	NSImage* image = [[NSImage  alloc] initWithData:[request responseData]];
+- (void)didDownloadImage:(NSImage *)image fromURL:(NSURL *)URL {
 	if (!image) {
 		return;
 	}
-		
-	[pendingImages removeObject:request.originalURL];
-	[loadedImages setObject:image forKey:request.originalURL];
-
+   
+	[pendingImages removeObject:URL];
+	[loadedImages setObject:image forKey:URL];
+   
 	SEL selector = @selector(imageManager:didLoadImage:withURL:);
    if(self.delegate != nil && [self.delegate respondsToSelector:selector]) {
-      [self.delegate imageManager:self didLoadImage:image withURL:request.originalURL];
+      [self.delegate imageManager:self didLoadImage:image withURL:URL];
    }
 }
 
-- (void)imageWentWrong:(ASIHTTPRequest*)request {
-	NSLog(@"image went wrong %@", [[request error] localizedDescription]);
-	[pendingImages removeObject:request.originalURL]; // TODO should not try to load the image again for a while
-}
-
-+ (void) clearMemoryCache {
++ (void)clearMemoryCache {
     [sharedSingleton clearMemoryCache];
 }
 
-- (void) clearMemoryCache {
+- (void)clearMemoryCache {
 	[loadedImages removeAllObjects];
 	[pendingImages removeAllObjects];
 }
 
-+ (void) clearCache {
++ (void)clearCache {
     [sharedSingleton clearCache];
 }
 
-- (void) clearCache {
-    NSFileManager* fs = [NSFileManager defaultManager];
-	// BOOL b = 
-	[fs removeItemAtPath:[self cacheDirectory] error:NULL];
-    
-}
-
-+ (void) releaseSingleton {
-   // makes no sense when using ARC
-   // [sharedSingleton release]; 
+- (void)clearCache {
+   NSFileManager* fs = [NSFileManager defaultManager];
+   [fs removeItemAtPath:[self cacheDirectory] error:NULL];    
 }
 
 + (OSBImageManager *)sharedImageManager {
@@ -125,5 +91,19 @@ static OSBImageManager *sharedSingleton;
 #pragma mark Properties
 @synthesize delegate;
 
+#pragma mark OSBDownloadImageOperationDelegate
+- (void)downloadImageOperation:(OSBDownloadImageOperation *)operation didDownloadImage:(NSImage *)image fromURL:(NSURL *)URL {
+	if (!image) {
+		return;
+	}
+   
+	[pendingImages removeObject:URL];
+	[loadedImages setObject:image forKey:URL];
+   
+	SEL selector = @selector(imageManager:didLoadImage:withURL:);
+   if(self.delegate != nil && [self.delegate respondsToSelector:selector]) {
+      [self.delegate imageManager:self didLoadImage:image withURL:URL];
+   }
+}
 
 @end
