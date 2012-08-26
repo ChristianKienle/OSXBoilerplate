@@ -92,12 +92,10 @@
         }
         NSViewController *controller = [self createViewControllerForToolbarItem:visibleItem];
         if(controller == nil) {
-            NSLog(@"Controller for %@ is nil",visibleItem.itemIdentifier);
             continue;
         }
-        if (visibleItem.itemIdentifier != nil) {
-            NSLog(@"CREATED ENTRY FOR: %@", visibleItem.itemIdentifier);
-            NSString *controllerName = visibleItem.itemIdentifier;
+        NSString *controllerName = visibleItem.itemIdentifier;
+        if (controllerName != nil) {
             [self.viewControllers setObject:controller forKey:controllerName];
         }
         if(firstItem == nil) {
@@ -115,50 +113,37 @@
         return nil;
     }
     
-    NSString *controllerIdentifier = item.itemIdentifier;
-    NSMutableString *nibIdentifier = [item.itemIdentifier mutableCopy];
-    if ([controllerIdentifier hasSuffix:@"Controller"]) {
-        NSRange controllerRange = NSMakeRange([controllerIdentifier length]-[@"Controller" length], [@"Controller" length]);
-        [nibIdentifier deleteCharactersInRange:controllerRange];
-    } else {
-        NSLog(@"Error: Controller Name must be of the form <nibname>Controller");
-    }
+    NSString *controllerName = item.itemIdentifier;
+    NSString *nibName = [self nibNameFromControllerName: controllerName];
     
-    NSLog(@"CREATING NSVIEWCONTROLLER FOR: %@", controllerIdentifier);
-    NSViewController *result = [[NSClassFromString(controllerIdentifier) alloc] initWithNibName:nibIdentifier bundle:nil];
-    NSLog(@"Nibname of created NSVIEWCONTROLLER: %@",result.nibName);
-    if(result == nil) {
-        NSLog(@"NSVIEW CONTROLLER IS NIL!");
-        return nil;
-    }
+    NSViewController *result = [[NSClassFromString(controllerName) alloc] initWithNibName:nibName bundle:nil];
     [result view];
     return result;
 }
 
 - (NSViewController *)existingViewControllerForToolbarItem:(NSToolbarItem *)item {
-    NSLog(@"Getting existing controller!");
     if(item == nil) {
-        NSLog(@"ITEM IS NIL");
         return nil;
     }
     
-    NSString *controllerIdentifier = item.itemIdentifier;
-    NSMutableString *nibIdentifier = [item.itemIdentifier mutableCopy];
-    if ([controllerIdentifier hasSuffix:@"Controller"]) {
-        NSRange controllerRange = NSMakeRange([controllerIdentifier length]-[@"Controller" length], [@"Controller" length]);
-        [nibIdentifier deleteCharactersInRange:controllerRange];
+    NSString *controllerName = item.itemIdentifier;
+    
+    if (controllerName != nil) {
+        return [self.viewControllers objectForKey:controllerName];
+    } else {
+        return nil;
+    }
+}
+
+- (NSString *)nibNameFromControllerName:(NSString*)controllerName {
+    NSMutableString *nibName = [controllerName mutableCopy];
+    if ([controllerName hasSuffix:@"Controller"]) {
+        NSRange controllerRange = NSMakeRange([controllerName length]-[@"Controller" length], [@"Controller" length]);
+        [nibName deleteCharactersInRange:controllerRange];
     } else {
         NSLog(@"Error: Controller Name must be of the form <nibname>Controller");
     }
-    
-    if (controllerIdentifier != nil) {
-        NSLog(@"THE IDENT: %@", controllerIdentifier);
-        
-        return [self.viewControllers objectForKey:controllerIdentifier];
-    } else {
-        NSLog(@"IDENT IS NIL");
-        return nil;
-    }
+    return nibName;
 }
 
 @end
