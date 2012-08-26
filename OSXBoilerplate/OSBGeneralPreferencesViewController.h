@@ -6,4 +6,6 @@
 
 @interface OSBGeneralPreferencesViewController : NSViewController
 
+- (IBAction)clickedCheckbox:(id)sender;
+
 @end
