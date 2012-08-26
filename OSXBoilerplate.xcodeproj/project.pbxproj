@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		AB272B8A1429DAF000EE2A7F /* OSBGeneralPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB272B881429DAF000EE2A7F /* OSBGeneralPreferencesViewController.m */; };
-		AB272B8B1429DAF000EE2A7F /* OSBGeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB272B891429DAF000EE2A7F /* OSBGeneralPreferencesViewController.xib */; };
+		AB272B8B1429DAF000EE2A7F /* OSBGeneralPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB272B891429DAF000EE2A7F /* OSBGeneralPreferencesView.xib */; };
 		AB272B8F1429DB2B00EE2A7F /* OSBMiscPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB272B8D1429DB2B00EE2A7F /* OSBMiscPreferencesViewController.m */; };
-		AB272B901429DB2B00EE2A7F /* OSBMiscPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB272B8E1429DB2B00EE2A7F /* OSBMiscPreferencesViewController.xib */; };
+		AB272B901429DB2B00EE2A7F /* OSBMiscPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB272B8E1429DB2B00EE2A7F /* OSBMiscPreferencesView.xib */; };
 		AB272B9C1429E47A00EE2A7F /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = AB272B971429E47A00EE2A7F /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AB272B9D1429E47A00EE2A7F /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AB272B991429E47A00EE2A7F /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		AB272B9E1429E47A00EE2A7F /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = AB272B9B1429E47A00EE2A7F /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -43,10 +43,10 @@
 /* Begin PBXFileReference section */
 		AB272B871429DAF000EE2A7F /* OSBGeneralPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSBGeneralPreferencesViewController.h; sourceTree = "<group>"; };
 		AB272B881429DAF000EE2A7F /* OSBGeneralPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSBGeneralPreferencesViewController.m; sourceTree = "<group>"; };
-		AB272B891429DAF000EE2A7F /* OSBGeneralPreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OSBGeneralPreferencesViewController.xib; sourceTree = "<group>"; };
+		AB272B891429DAF000EE2A7F /* OSBGeneralPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OSBGeneralPreferencesView.xib; sourceTree = "<group>"; };
 		AB272B8C1429DB2B00EE2A7F /* OSBMiscPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSBMiscPreferencesViewController.h; sourceTree = "<group>"; };
 		AB272B8D1429DB2B00EE2A7F /* OSBMiscPreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSBMiscPreferencesViewController.m; sourceTree = "<group>"; };
-		AB272B8E1429DB2B00EE2A7F /* OSBMiscPreferencesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OSBMiscPreferencesViewController.xib; sourceTree = "<group>"; };
+		AB272B8E1429DB2B00EE2A7F /* OSBMiscPreferencesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OSBMiscPreferencesView.xib; sourceTree = "<group>"; };
 		AB272B961429E47A00EE2A7F /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		AB272B971429E47A00EE2A7F /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		AB272B981429E47A00EE2A7F /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -143,10 +143,10 @@
 			children = (
 				AB272B871429DAF000EE2A7F /* OSBGeneralPreferencesViewController.h */,
 				AB272B881429DAF000EE2A7F /* OSBGeneralPreferencesViewController.m */,
-				AB272B891429DAF000EE2A7F /* OSBGeneralPreferencesViewController.xib */,
+				AB272B891429DAF000EE2A7F /* OSBGeneralPreferencesView.xib */,
 				AB272B8C1429DB2B00EE2A7F /* OSBMiscPreferencesViewController.h */,
 				AB272B8D1429DB2B00EE2A7F /* OSBMiscPreferencesViewController.m */,
-				AB272B8E1429DB2B00EE2A7F /* OSBMiscPreferencesViewController.xib */,
+				AB272B8E1429DB2B00EE2A7F /* OSBMiscPreferencesView.xib */,
 			);
 			name = "Preferences Views - Delete if not needed";
 			sourceTree = "<group>";
@@ -379,7 +379,7 @@
 		AB92768A142776A900303D2F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = AB92768D142776A900303D2F /* Build configuration list for PBXProject "OSXBoilerplate" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -406,8 +406,8 @@
 				AB9276A2142776A900303D2F /* InfoPlist.strings in Resources */,
 				AB9276A8142776A900303D2F /* Credits.rtf in Resources */,
 				AB9276AE142776AA00303D2F /* MainMenu.xib in Resources */,
-				AB272B8B1429DAF000EE2A7F /* OSBGeneralPreferencesViewController.xib in Resources */,
-				AB272B901429DB2B00EE2A7F /* OSBMiscPreferencesViewController.xib in Resources */,
+				AB272B8B1429DAF000EE2A7F /* OSBGeneralPreferencesView.xib in Resources */,
+				AB272B901429DB2B00EE2A7F /* OSBMiscPreferencesView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +522,7 @@
 		AB9276B5142776AA00303D2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OSXBoilerplate/OSXBoilerplate-Prefix.pch";
 				INFOPLIST_FILE = "OSXBoilerplate/OSXBoilerplate-Info.plist";
@@ -533,6 +534,7 @@
 		AB9276B6142776AA00303D2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OSXBoilerplate/OSXBoilerplate-Prefix.pch";
 				INFOPLIST_FILE = "OSXBoilerplate/OSXBoilerplate-Info.plist";
